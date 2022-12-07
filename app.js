@@ -29,7 +29,12 @@ button.addEventListener('click', function cadastrarDespesa(){
     valor.value
   )
   
-  console.log(cadastroDespesa1)
-
+  gravar(cadastroDespesa1)
+  
 })
+
+function gravar(d){
+  localStorage.setItem('despesa',JSON.stringify(d))
+}
+
 
