@@ -9,6 +9,34 @@ class Despesa{
   }
 }
 
+class Bd {
+  constructor(){
+    let id = localStorage.getItem('id')
+
+    if(id === null){
+      localStorage.setItem('id', 0)
+    }
+  }
+
+  getProximoId(){
+    let proximoId = localStorage.getItem('id')
+    return parseInt(proximoId) + 1
+  }
+
+  gravar(d){
+    
+    let novoId = this.getProximoId()
+
+    localStorage.setItem(novoId,JSON.stringify(d))
+
+    localStorage.setItem('id',novoId)
+  }
+
+
+}
+
+let bd = new Bd()
+
 let button = document.querySelector('#button')
 
 button.addEventListener('click', function cadastrarDespesa(){
@@ -29,12 +57,10 @@ button.addEventListener('click', function cadastrarDespesa(){
     valor.value
   )
   
-  gravar(cadastroDespesa1)
+  bd.gravar(cadastroDespesa1)
   
 })
 
-function gravar(d){
-  localStorage.setItem('despesa',JSON.stringify(d))
-}
+
 
 
