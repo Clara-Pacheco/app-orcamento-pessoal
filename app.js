@@ -68,10 +68,28 @@ button.addEventListener('click', function cadastrarDespesa(){
   
   if(cadastroDespesa1.validarDados()){
     bd.gravar(cadastroDespesa1)
-    $('#sucessoGravacao').modal('show')
+
+    document.querySelector('#modal_titulo').innerHTML = 'Registro inserido com sucesso'
+    document.querySelector('#modal_titulo_div').className = 'modal-header text-success'
+
+    document.querySelector('#modal_conteudo').innerHTML = "Despesa foi cadastrada com sucesso!"
+
+    document.querySelector('#modal_btn').innerHTML = 'Voltar'
+    document.querySelector('#modal_btn').className = "btn btn-success" 
+   
+    $('#modalRegistraDespesa').modal('show')
     console.log('Dados válidos!')
   }else{
-    $('#erroGravacao').modal('show')
+    document.querySelector('#modal_titulo').innerHTML = 'Erro na inclusão do registro'
+    document.querySelector('#modal_titulo_div').className = 'modal-header text-danger'
+
+    document.querySelector('#modal_conteudo').innerHTML = "Erro na gravação, verifique se todos os campos foram preenchidos corretamente!"
+
+    document.querySelector('#modal_btn').innerHTML = 'Voltar e corrigir'
+
+    document.querySelector('#modal_btn').className = "btn btn-danger" 
+
+    $('#modalRegistraDespesa').modal('show')
     console.log('Dados inválidos!')
   }
   
