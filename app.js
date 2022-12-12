@@ -68,8 +68,10 @@ button.addEventListener('click', function cadastrarDespesa(){
   
   if(cadastroDespesa1.validarDados()){
     bd.gravar(cadastroDespesa1)
+    $('#sucessoGravacao').modal('show')
     console.log('Dados válidos!')
   }else{
+    $('#erroGravacao').modal('show')
     console.log('Dados inválidos!')
   }
   

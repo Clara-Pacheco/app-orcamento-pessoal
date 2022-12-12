@@ -107,12 +107,8 @@
       </div>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#erroGravacao">
-      Launch demo modal
-    </button>
 
-    <!-- Modal -->
+    <!-- Modal de erro -->
     <div class="modal fade" id="erroGravacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -124,7 +120,25 @@
            Existem campos obrigatórios que não foram preenchidos!
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Voltar e corrigir</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar e corrigir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Modal de sucesso -->
+    <div class="modal fade" id="sucessoGravacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header text-success">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Registro inserido com sucesso</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           Despesa foi cadastrada com sucesso!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Voltar</button>
           </div>
         </div>
       </div>
