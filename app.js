@@ -99,6 +99,14 @@ function cadastrarDespesa(){
     document.querySelector('#modal_btn').className = "btn btn-success" 
    
     $('#modalRegistraDespesa').modal('show')
+
+    ano.value = ''
+    mes.value = ''
+    dia.value = ''
+    tipo.value = ''
+    descricao.value = ''
+    valor.value = ''
+
     console.log('Dados válidos!')
   }else{
     
@@ -150,7 +158,7 @@ function carregaListaDespesas(){
           d.tipo = 'Transporte'
           break
       }
-      
+
     linha.insertCell(1).innerHTML = d.tipo
     linha.insertCell(2).innerHTML = d.descricao
     linha.insertCell(3).innerHTML = d.valor
