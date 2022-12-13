@@ -41,14 +41,32 @@ class Bd {
     localStorage.setItem('id',novoId)
   }
 
+  recuperaTodosRegistros(){
+    // array
+    let despesas = []
+    
+    let id = localStorage.getItem('id')
+
+    for(let i = 1;i <= id; i++){
+  
+      let despesa = JSON.parse(localStorage.getItem(i))
+      if(despesa === null){
+        continue
+      }
+      despesas.push(despesa)
+      
+    }
+
+    return despesas
+  }
+
 
 }
 
 let bd = new Bd()
 
-let button = document.querySelector('#button')
 
-button.addEventListener('click', function cadastrarDespesa(){
+function cadastrarDespesa(){
 
   let ano = document.querySelector('#ano')
   let mes = document.querySelector('#mes')
@@ -69,24 +87,30 @@ button.addEventListener('click', function cadastrarDespesa(){
   if(cadastroDespesa1.validarDados()){
     bd.gravar(cadastroDespesa1)
 
+    //Título
     document.querySelector('#modal_titulo').innerHTML = 'Registro inserido com sucesso'
     document.querySelector('#modal_titulo_div').className = 'modal-header text-success'
 
+    //Conteúdo
     document.querySelector('#modal_conteudo').innerHTML = "Despesa foi cadastrada com sucesso!"
 
+    //Botão
     document.querySelector('#modal_btn').innerHTML = 'Voltar'
     document.querySelector('#modal_btn').className = "btn btn-success" 
    
     $('#modalRegistraDespesa').modal('show')
     console.log('Dados válidos!')
   }else{
+    
+    //Título
     document.querySelector('#modal_titulo').innerHTML = 'Erro na inclusão do registro'
     document.querySelector('#modal_titulo_div').className = 'modal-header text-danger'
 
+    //Conteúdo
     document.querySelector('#modal_conteudo').innerHTML = "Erro na gravação, verifique se todos os campos foram preenchidos corretamente!"
 
+    //Botão
     document.querySelector('#modal_btn').innerHTML = 'Voltar e corrigir'
-
     document.querySelector('#modal_btn').className = "btn btn-danger" 
 
     $('#modalRegistraDespesa').modal('show')
@@ -94,7 +118,16 @@ button.addEventListener('click', function cadastrarDespesa(){
   }
   
   
-})
+}
+
+
+
+function carregaListaDespesas(){
+  let despesas = bd.recuperaTodosRegistros()
+
+  console.log(despesas)
+
+}
 
 
 
