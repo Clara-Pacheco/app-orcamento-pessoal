@@ -167,6 +167,11 @@ function carregaListaDespesas(){
 
 }
 
+function pesquisarDespesa(){
+
+  console.log('Teste')
+}
+
 
 
 
