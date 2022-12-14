@@ -169,7 +169,16 @@ function carregaListaDespesas(){
 
 function pesquisarDespesa(){
 
-  console.log('Teste')
+  let ano = document.querySelector('#ano').value
+	let mes = document.querySelector('#mes').value
+	let dia = document.querySelector('#dia').value
+	let tipo = document.querySelector('#tipo').value
+	let descricao = document.querySelector('#descricao').value
+	let valor = document.querySelector('#valor').value
+
+  let despesa = new Despesa(ano,mes,dia,tipo,descricao,valor)
+	
+  console.log(despesa)
 }
 
 
