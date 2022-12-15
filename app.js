@@ -217,6 +217,14 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
     linha.insertCell(2).innerHTML = d.descricao
     linha.insertCell(3).innerHTML = d.valor
 
+    //Criar o botão de exclusão
+
+    let btn = document.createElement("button")
+    linha.insertCell(4).append(btn)
+
+
+
+
   })
 
 }
