@@ -53,6 +53,8 @@ class Bd {
       if(despesa === null){
         continue
       }
+
+      despesa.id = i
       despesas.push(despesa)
       
     }
@@ -108,6 +110,10 @@ class Bd {
 
     return despesasFiltradas
   
+   }
+
+   remover(id){
+    localStorage.removeItem(id)
    }
 
 
@@ -220,6 +226,15 @@ function carregaListaDespesas(despesas = Array(), filtro = false){
     //Criar o botão de exclusão
 
     let btn = document.createElement("button")
+    btn.className = 'btn btn-danger'
+    btn.innerHTML = '<i class = "fas fa-times"></i>'
+    btn.id = `id_despesa ${d.id}`
+    btn.onclick = function(){
+      //remover a despesa
+      let id = this.id.replace('id_despesa', '')
+      alert(id)
+      bd.remover(this.id)
+     }
     linha.insertCell(4).append(btn)
 
 
